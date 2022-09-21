@@ -24,9 +24,7 @@ namespace Master_Card.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"
-                            select * from
-                                dbo.Master";
+            string query = @" select * from dbo.Master  ";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MasterCard");
@@ -50,8 +48,8 @@ namespace Master_Card.Controllers
         {
             string query = @"
                             select * from
-                                dbo.Master where CreditCardNumber=" + id + @"
-";
+                                dbo.Master where CreditCardNumber=" + id + @"";
+
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MasterCard");
             SqlDataReader myReader;
@@ -150,7 +148,7 @@ namespace Master_Card.Controllers
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delate(long id)
+        public JsonResult Delete(long id)
         {
             try
             {
@@ -183,7 +181,7 @@ namespace Master_Card.Controllers
 
 
         [HttpDelete]
-        public JsonResult Delate()
+        public JsonResult Delete()
         {
             try
             {
